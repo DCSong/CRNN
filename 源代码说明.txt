@@ -1,0 +1,52 @@
+一、文件（夹）说明
+data_generator：存放文本行图片生成相关代码
+    background：背景图片
+    data_set：生成结果
+    font：候选字体
+    generator.py：文本行图片生成代码
+    text.txt：语料库
+    transform.py: 将生成的数据集标签转化为需要的格式
+
+Dataset：存放训练集图片和标签
+    images：图片文件
+    labels：标签文件及字典文件
+        Idx2Char.txt：字典文件
+        Char2Idx.txt：字典文件
+        char_std_6129.txt：字符列表，用以生成上面的字典文件
+        train.txt：训练数据标签（例：20456343_4045240981.jpg 89 201 241 178 19 94 19 22 26 656）
+        valid.txt：验证数据标签
+        （如下载的数据集中标签是中文本文行，则需要自己转化一下，思路同transform.py）
+        （char_std_6129包括了原始数据集中5990个字符和生成数据集中额外的其他字符）
+        （如不想使用生成数据集，可直接使用原始数据集中提供的char_std_5990文件即可）
+
+test_images：存放测试图片
+
+checkpoint.pth.tar：VGG版本参数文件
+checkpoint_v2.pth.tar：DenseNet版本参数文件
+
+Config.py：部分参数设置
+dictionary.py：字典文件生成代码
+infer.py：VGG版本测试代码
+infer_v2.py：DenseNet版本测试代码
+main.py：VGG版本训练代码
+main_v2.py：DenseNet版本训练代码
+model.py：VGG版本模型文件
+model_v2.py：DenseNet版本模型文件
+requirements.txt：依赖包及其版本（只标注了测试时实际的环境，其他版本不一定可以运行）
+
+
+二、操作说明
+VGG是原始版本的CRNN，对模型参数进行了一定的改动；带v2是改进后的DenseNet版本CRNN
+模型文件定义在model.py和model_v2.py中，基于PyTorch编写。其中DenseNet的代码是PyToch官方发布的版本，我在此基础上根据实际需求进行了修改。
+
+
+训练时，运行main.py或main_v2.py，batch_size和epochs等参数可在Config.py里修改
+两个模型都已训练好，参数文件checkpoints会在测试时被自动读取
+
+
+测试时，将需要测试的文本行图片放在test_images文件夹中，运行infer.py或infer_v2.py即可得到预测结果
+（需要注意的是，若测试文件是截图得到，要求文本必须是单行，但字数不限，同时文本行上下不要留太多的空白，这是由于这里只考虑了文本行识别，没有考虑定位算法，即假设得到的文本行图片都是定位好的）
+
+
+
+

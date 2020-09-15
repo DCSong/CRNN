@@ -1,6 +1,10 @@
 # CRNN-DenseNet
 a DenseNet-CRNN implement with PyTorch
+<An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition>
+
 ## 概况
+CRNN是一种经典的用于文本/场景文本识别架构
+这里我们用CRNN来进行印刷体文本行的识别
 提供了CRNN的两种实现：原始版本的VGG实现和DenseNet作为CNN架构的实现(后缀v2) 
 
 文件夹结构和其他说明请见 **源代码说明.txt**

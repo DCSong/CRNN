@@ -1,7 +1,8 @@
 # CRNN-DenseNet
 a DenseNet-CRNN implement with PyTorch
 
-<An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition>
+An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition
+https://arxiv.org/abs/1507.05717
 
 
 ## 概况
